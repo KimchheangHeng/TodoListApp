@@ -4,8 +4,9 @@ import 'package:todoey_flutter/models/task.dart';
 class TaskTile extends StatelessWidget {
   final Task task;
   final Function toggleTaskDone;
+  final Function longPressCallback;
 
-  TaskTile({this.task, this.toggleTaskDone});
+  TaskTile({this.task, this.toggleTaskDone, this.longPressCallback});
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -21,6 +22,7 @@ class TaskTile extends StatelessWidget {
         value: task.isDone,
         onChanged: toggleTaskDone,
       ),
+      onLongPress: longPressCallback,
     );
   }
 }
